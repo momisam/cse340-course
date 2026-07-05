@@ -136,6 +136,74 @@ nav a:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,.15);
 }
 
+/* ===================================
+   FEATURES
+=================================== */
+
+.features{
+    padding:5rem 0;
+    text-align:center;
+}
+
+.features h2{
+
+font-size:2.3rem;
+
+margin-bottom:3rem;
+
+color:#0f172a;
+
+}
+
+.feature-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:2rem;
+
+}
+
+.feature-card{
+
+background:white;
+
+padding:2rem;
+
+border-radius:15px;
+
+box-shadow:
+
+0 10px 30px
+
+rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.feature-card:hover{
+
+transform:
+
+translateY(-8px);
+
+}
+
+.feature-card h3{
+
+color:#0d9488;
+
+margin-bottom:1rem;
+
+}
+.feature-card p{
+
+color:#555;
+
+}
 
 
 /* ===================================
@@ -165,5 +233,10 @@ nav a:hover {
     main {
         padding: 1rem;
     }
+    .feature-grid{
+
+grid-template-columns:1fr;
+
+}
 
 }
