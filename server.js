@@ -57,3 +57,4 @@ app.listen(PORT, () => {
     console.log(`Server is running on a locallhost:${PORT}`);
     console.log(`Environment: ${NODE_ENV}`);
 });
+
