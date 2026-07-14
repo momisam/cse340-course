@@ -2,19 +2,14 @@
 
 <main>
     <h1><%= title %></h1>
-    <h2>Categories of Projects</h2>
-    <ul>
-       <li>Environmental</li>
-      <li>Educational</li>
-       <li>Community Service</li>
-       <li>Health and Wellness</li>
+
+    <p>Browse the available service project categories.</p>
+
+    <ul class="category-list">
+        <% categories.forEach(category => { %>
+            <li><%= category.name %></li>
+        <% }) %>
     </ul>
-
-
 </main>
 
-
-
-
-
-<%- include ('partials/footer') %>
+<%- include('partials/footer') %>

@@ -1,12 +1,14 @@
 import express from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import { title } from 'process';
 import { testConnection } from './src/models/db.js';
 import { getAllOrganizations } from './src/models/organizations.js';
+import { getAllCategories } from './src/models/categories.js';
+import { getAllProjects } from './src/models/projects.js';
+
 
 //Define the application Environment
-const NODE_ENV = process.env.NODE_ENV?.toLocaleLowerCase || 'production';
+const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || 'production';
 
 //Define the PORT number the server will listen On
 const PORT = process.env.PORT || 3000;
@@ -21,6 +23,7 @@ const app = express();
   */
 
 // Serve static files from the public directory
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set EJS as the templating engine
@@ -34,27 +37,52 @@ app.set('views', path.join(__dirname, 'src/views'));
   * Routes
   */
 
-app.get('/', async (req,res) => {
+app.get('/', async (req, res) => {
     const title = 'Home';
     res.render('home', { title });
 });
 
 app.get('/organizations', async (req, res) => {
-    const organization = await getAllOrganizations();
-    console.log(organization);
-    const title = 'Our Partner Organizations';
-    res.render('organizations', { title });
+    try {
+        const organizations = await getAllOrganizations();
+
+        res.render('organizations', {
+            title: 'Our Partner Organizations',
+            organizations
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Unable to load organizations.');
+    }
 });
 
 app.get('/projects', async (req, res) => {
-    const title = 'Projects';
-    res.render('projects', { title });
+    try {
+        const projects = await getAllProjects();
+
+        res.render('projects', {
+            title: 'Projects',
+            projects
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Unable to load projects.');
+    }
 });
 
 app.get('/categories', async (req, res) => {
-    const title = 'Categories';
-    res.render('categories', { title });
-    });
+    try {
+        const categories = await getAllCategories();
+
+        res.render('categories', {
+            title: 'Categories',
+            categories
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Unable to load categories.');
+    }
+});
 
 app.listen(PORT, async () => {
   try {

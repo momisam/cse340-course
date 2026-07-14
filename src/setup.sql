@@ -1,3 +1,9 @@
+DROP TABLE IF EXISTS project_category CASCADE;
+DROP TABLE IF EXISTS project CASCADE;
+DROP TABLE IF EXISTS category CASCADE;
+DROP TABLE IF EXISTS organization CASCADE;
+
+
 -- ========================================
 -- Organization Table
 -- ========================================
@@ -9,6 +15,7 @@ CREATE TABLE organization (
     contact_email VARCHAR(255) NOT NULL,
     logo_filename VARCHAR(255) NOT NULL
 );
+
 
 -- ========================================
 -- Insert Sample Organizations
@@ -45,12 +52,86 @@ CREATE TABLE project (
         ON DELETE CASCADE
 );
 
+
+
+
 -- ========================================
 -- Insert Sample Projects
 -- ========================================
 
--- Paste the 50 INSERT statements we created earlier here.
--- Do not change them.
+INSERT INTO project (organization_id, title, description, location, project_date)
+VALUES
+
+-- BrightFuture Builders (Organization 1)
+(1,'Community Park Renovation','Renovated a public park with new walkways and playground equipment.','Lagos','2026-01-15'),
+(1,'Bridge Repair Initiative','Repaired damaged community bridges for safer transportation.','Ibadan','2026-02-10'),
+(1,'School Building Upgrade','Renovated classrooms and installed new furniture.','Abuja','2026-03-05'),
+(1,'Road Safety Improvement','Installed road signs and speed bumps near schools.','Kano','2026-04-18'),
+(1,'Water Well Construction','Constructed clean water wells for rural communities.','Jos','2026-05-22'),
+
+-- GreenHarvest Growers (Organization 2)
+(2,'Urban Garden Project','Established community vegetable gardens.','Lagos','2026-01-20'),
+(2,'Tree Planting Campaign','Planted over 2,000 trees across neighborhoods.','Benin City','2026-02-14'),
+(2,'Farmers Training Workshop','Trained local farmers on sustainable farming.','Ilorin','2026-03-11'),
+(2,'School Garden Initiative','Created gardens in primary schools.','Akure','2026-04-09'),
+(2,'Composting Program','Introduced composting education for residents.','Enugu','2026-05-19'),
+
+-- UnityServe Volunteers (Organization 3)
+(3,'Food Distribution Drive','Distributed food packages to families.','Port Harcourt','2026-01-28'),
+(3,'Volunteer Recruitment Fair','Recruited volunteers for local charities.','Lagos','2026-02-26'),
+(3,'Community Cleanup','Organized neighborhood sanitation exercise.','Owerri','2026-03-22'),
+(3,'Senior Citizen Support','Visited and assisted elderly residents.','Abeokuta','2026-04-12'),
+(3,'Youth Mentorship Program','Mentored teenagers through leadership activities.','Kaduna','2026-05-15'),
+
+-- Helping Hands Foundation (Organization 4)
+(4,'School Supply Donation','Provided school materials to students.','Ibadan','2026-01-18'),
+(4,'Clothing Donation Program','Distributed clothing to disadvantaged families.','Lagos','2026-02-16'),
+(4,'Emergency Relief Support','Delivered emergency supplies after flooding.','Makurdi','2026-03-25'),
+(4,'Holiday Food Drive','Organized seasonal food donations.','Calabar','2026-04-21'),
+(4,'Family Support Workshop','Hosted parenting and financial literacy workshops.','Uyo','2026-05-30'),
+
+-- Community Care Network (Organization 5)
+(5,'Health Awareness Campaign','Provided free health education and screenings.','Enugu','2026-01-24'),
+(5,'Medical Outreach','Offered free medical consultations.','Lokoja','2026-02-18'),
+(5,'Community Health Fair','Conducted health education programs.','Minna','2026-03-20'),
+(5,'Blood Donation Campaign','Organized voluntary blood donations.','Lagos','2026-04-15'),
+(5,'Nutrition Education','Promoted healthy eating habits.','Osogbo','2026-05-10'),
+
+-- HopeBridge Services (Organization 6)
+(6,'Shelter Renovation','Improved facilities at community shelters.','Kaduna','2026-01-17'),
+(6,'Counseling Services','Provided counseling support for families.','Abuja','2026-02-11'),
+(6,'Housing Assistance','Supported low-income families with housing.','Ilorin','2026-03-07'),
+(6,'Refugee Support Program','Assisted displaced persons with essential supplies.','Yola','2026-04-19'),
+(6,'Life Skills Training','Organized vocational training workshops.','Bauchi','2026-05-25'),
+
+-- Future Leaders Initiative (Organization 7)
+(7,'Leadership Bootcamp','Trained young leaders in communication skills.','Lagos','2026-01-14'),
+(7,'Career Development Workshop','Prepared students for future careers.','Abuja','2026-02-08'),
+(7,'Coding for Youth','Introduced programming to secondary school students.','Ibadan','2026-03-16'),
+(7,'Scholarship Seminar','Guided students on scholarship opportunities.','Benin City','2026-04-08'),
+(7,'Entrepreneurship Training','Taught business startup skills.','Owerri','2026-05-17'),
+
+-- Clean Earth Alliance (Organization 8)
+(8,'Beach Cleanup','Removed waste from coastal areas.','Lagos','2026-01-30'),
+(8,'Recycling Awareness','Educated communities on recycling.','Port Harcourt','2026-02-24'),
+(8,'Tree Restoration','Replanted trees in deforested areas.','Jos','2026-03-14'),
+(8,'Plastic-Free Campaign','Reduced plastic waste in schools.','Akure','2026-04-17'),
+(8,'Environmental Workshop','Hosted sustainability seminars.','Calabar','2026-05-20'),
+
+-- Global Outreach Volunteers (Organization 9)
+(9,'International Volunteer Exchange','Connected volunteers across countries.','Abuja','2026-01-27'),
+(9,'Community Literacy Program','Improved literacy through volunteer tutors.','Enugu','2026-02-22'),
+(9,'Water Sanitation Project','Improved access to clean water.','Sokoto','2026-03-12'),
+(9,'Disaster Recovery Support','Assisted communities after natural disasters.','Maiduguri','2026-04-20'),
+(9,'Volunteer Training','Prepared volunteers for outreach programs.','Lagos','2026-05-28'),
+
+-- Care for All Foundation (Organization 10)
+(10,'Free Medical Clinic','Provided free healthcare services.','Lagos','2026-01-19'),
+(10,'Vaccination Campaign','Organized community vaccination events.','Abuja','2026-02-21'),
+(10,'Maternal Health Program','Supported pregnant women with healthcare.','Kano','2026-03-18'),
+(10,'Child Wellness Initiative','Delivered health services for children.','Jos','2026-04-23'),
+(10,'Disaster Relief Mission','Provided emergency medical assistance.','Port Harcourt','2026-05-29');
+
 
 -- ========================================
 -- Category Table
