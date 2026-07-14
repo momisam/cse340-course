@@ -142,6 +142,7 @@ CREATE TABLE category (
     name VARCHAR(100) NOT NULL
 );
 
+
 -- ========================================
 -- Insert Sample Categories
 -- ========================================
